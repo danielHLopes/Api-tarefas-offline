@@ -9,17 +9,17 @@ class TarefaController {
   listar(){
     this._tarefas.limpar()
     this._tarefaService.listarTodas()
+      
       // Adiciona as tarefas recebidas na lista de tarefas
       .then(tarefas => {
         tarefas.map(tarefa => {
-          console.log(tarefa)
-          this._tarefas.adicionar(tarefa)
-        }
+          localStorage.setItem("tarefaStorage", JSON.stringify(tarefas))
+          //this._tarefas.adicionar(tarefa)
           
-          )
+        })
       })
-      // Passa os dados para a View
-      .then(() => this._tarefaView.montarGrid(this._tarefas))
+      this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));      
+      this._tarefaView.montarGrid(this._tarefas)
   }
 
    //método desenvolvido pelo juliano
@@ -131,10 +131,10 @@ class TarefaController {
     "prioridade":"${prioridade}",
     "id_user":"${id_user}"}`
 
-    
+    this._tarefas.adicionar(corpo)
+    console.log(this._tarefas._tarefas)
+    localStorage.setItem("tarefaStorage", JSON.stringify(this._tarefas._tarefas))
 
-
-    console.log(corpo)
     // Criar a tarefa
     // const tarefa = new Tarefa(descricao, datahorario, categoria_id)
     
