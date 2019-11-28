@@ -74,5 +74,19 @@ class CategoriaController {
       .then(res => console.log(res))
   }
 
+  insertCategory(){
+    console.log("Chamou inserir insertCategory")
+    console.log()
+    console.log()
+    let _categoria = 
+    `{
+        "descricao":"${document.getElementById("txtCategDescricao").value}",
+        "cor":"${document.getElementById("txtCategCor").value}"
+     }`
+     console.log(_categoria)
+     this._categoriaService.inserir(_categoria)
+     .then(res => console.log(res))
+  }
+
  
 }
