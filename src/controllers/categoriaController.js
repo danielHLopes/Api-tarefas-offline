@@ -169,7 +169,7 @@ exports.inserir = (req, res) =>{
      categoria.push(req.body.descricao)
      categoria.push(req.body.cor)
 
-     const query = 'insert into categorias(descricao,cor) values(?,?)'
+     const query = 'insert into categorias(descricao,cor,id_user) values(?,?,1)'
 
      conexao.query(query,categoria, (error, rows) =>{
          if(error){

@@ -99,7 +99,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title font-weight-bold ">Inserir nova categoria</h4>
+              <h4 class="modal-title font-weight-bold ">Adicionar categoria</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -108,19 +108,19 @@
               <form class="form">
                 <div class="form-group">
                   <label for="descricao">Descrição:</label>
-                  <input type="text" id="descricao" class="form-control" value="Estudar">
+                  <input type="text" id="txtCategDescricao" class="form-control" value="Estudar">
                 </div>
                 <div class="form-group">
                   <label for="cor">Cor:</label>
-                  <input type="color" id="colorselector"> 
+                  <input type="color" id="txtCategCor"> 
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
               <button type="button" class="btn btn-primary" id="btn-salvar"
-                onclick="">Salvar</button>
-            </div>
+                onclick="categoriaController.insertCategory()">Salvar</button>
+            </div>  
           </div>
         </div>
       </div>
