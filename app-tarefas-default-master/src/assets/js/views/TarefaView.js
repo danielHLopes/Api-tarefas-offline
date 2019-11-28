@@ -38,6 +38,7 @@ class TarefaView {
           <input type="checkbox" class="mt-1">
         </div>
         <div class="flex-fill ml-2 mr-2">
+          
           <div><a href="#" class="link-task">${tarefa.descricao}</a></div>
           <div class="text-muted font-text">${tarefa.data}</div>
           <div class="mt-2 font-text"><svg width="9" height="10" viewBox="0 0 9 10" fill="${tarefa.cor}" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +51,7 @@ class TarefaView {
         </div>
           <div class="mt-3">
             <a href="#"><img onclick="tarefaController.trocarModalEditar(this),
-            tarefaController.carregarFormulario(this),tarefaController.editar('${tarefa.descricao}','${tarefa.data}','${tarefa.categoria_id}','${tarefa.prioridade}')"
+            tarefaController.carregarFormulario(this),tarefaController.editar('${tarefa.descricao}','${tarefa.data}','${tarefa.categoria_id}','${tarefa.prioridade}','${tarefa.id}')"
             src="assets/images/editar.svg" alt=""></a>
           </div>
         </div>

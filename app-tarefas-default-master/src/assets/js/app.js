@@ -27,6 +27,7 @@ link_deletados.addEventListener("click", function(){tarefaController.listar_por_
 var link_deletados = document.getElementById("categoriaTarefa");
 
 var btn_salvar_tarefas = document.getElementById("btn-salvarT");
+var btn_alterar_tarefas = document.getElementById("btn-alterarT");
 
 var campo_descricao = document.getElementById("descricaoTarefa");
 
@@ -34,5 +35,11 @@ var campo_data = document.getElementById("dataTarefa");
 var categoria = document.getElementById("categoriaTarefa");
 var prioridade = document.getElementById("prioridadetarefa_Tarefa");
 
+var idTarefa = document.getElementById("idTarefa");
 
 btn_salvar_tarefas.addEventListener("click", function(){tarefaController.inserir(campo_descricao.value,campo_data.value,categoria.value,prioridade.value,1)});
+
+console.log(idTarefa,categoria)
+
+btn_alterar_tarefas.addEventListener("click", function(){tarefaController.alterar(campo_descricao.value,campo_data.value,1,prioridade.value,1,idTarefa.value)});
+
