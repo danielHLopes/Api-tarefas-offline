@@ -88,8 +88,26 @@ class TarefaService extends Service {
             )
   }
 
-  alterar(tarefa){
-
+  alterar(tarefa,_id){
+    console.log("ALTERANDO tarefa")
+    console.log(tarefa)
+    let caminho = "http://localhost:3009/api/v1/tarefas/"+_id;
+    const parametros = {
+      method: 'PUT',
+      headers: {"Content-Type": "application/json"},
+      body: tarefa
+    }
+   
+    return fetch(`${caminho}`,parametros)
+            .then(res => {
+              if (!res.ok) throw new Error(res.statusText)
+                return  alert('Tarefa alterada com sucesso')
+            })
+            .then(document.location.reload(true))
+          
+            // .catch(erro => Mensagem.mostrar(erro, 'alert-danger')
+            .catch(erro => console.log(erro)
+            )
   }
 
   deletar(_id){

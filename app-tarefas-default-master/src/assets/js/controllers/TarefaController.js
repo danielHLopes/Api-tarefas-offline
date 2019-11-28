@@ -75,7 +75,8 @@ class TarefaController {
 
   }
 
-  editar(descricao,data,categoria,prioridade){
+  editar(descricao,data,categoria,prioridade,idTarefa){
+    console.log(idTarefa)
     categoriaController.listar()
     const Data = document.querySelector('#dataTarefa')
     Data.value = data
@@ -86,6 +87,8 @@ class TarefaController {
     const Categoria = document.querySelector('#categoriaTarefa')
     Categoria.value = categoria
     
+    const IdTarefa = document.querySelector('#idTarefa')
+    IdTarefa.value = idTarefa
 
     const Prioridade = document.querySelector('#prioridadeTarefa')
     if(prioridade == 1){
@@ -140,8 +143,17 @@ class TarefaController {
       .then(res => console.log(res))
   }
 
-  alterar(){
+  alterar(descricao, data,categoria_id,prioridade,id_user,idTarefa){
+    let corpo = `{"descricao":"${descricao}",
+    "data":"${data}",
+    "categoria_id" : "${categoria_id}",
+    "prioridade":"${prioridade}",
+    "id_user":"${id_user}"}`
 
+    console.log("alterar")
+
+    this._tarefaService.alterar(corpo,idTarefa)
+      .then(res => console.log(res))
   }
 
   deletar(id){
