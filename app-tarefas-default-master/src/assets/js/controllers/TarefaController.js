@@ -12,14 +12,20 @@ class TarefaController {
       // Adiciona as tarefas recebidas na lista de tarefas
       .then(tarefas => {
         tarefas.map(tarefa => {
-          console.log(tarefa)
-          this._tarefas.adicionar(tarefa)
+          
+          localStorage.setItem("tarefaStorage", JSON.stringify(tarefas) );
+          //this._tarefas.adicionar(tarefa)
         }
           
           )
       })
       // Passa os dados para a View
-      .then(() => this._tarefaView.montarGrid(this._tarefas))
+      //.then(() => this._tarefaView.montarGrid(this._tarefas))
+
+     
+      this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));
+      this._tarefaView.montarGrid(this._tarefas);
+
   }
 
    //método desenvolvido pelo juliano
@@ -54,7 +60,7 @@ class TarefaController {
     
     // Mostra o formulário
     $('#modalTarefa').modal('show')
-    
+    localStorage.removeItem(id);
   }
 
   trocarModalEditar(){
@@ -156,9 +162,21 @@ class TarefaController {
       .then(res => console.log(res))
   }
 
-  deletar(id){
-    this._tarefaService.deletar(id)
+  deletar(index){
+    console.log(index)
+    //this._tarefaService.deletar(id)
     // Passa os dados para a View
+      // Adiciona as tarefas recebidas na lista de tarefas
+  //    .then(tarefas => {
+   //     tarefas.map(tarefa => {
+          
+         localStorage.removeItem("localStorage");
+          //this._tarefas.adicionar(tarefa)
+       // }
+          
+      //    )
+   //   this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));
+   //   this._tarefaView.montarGrid(this._tarefas);
     
   }
 

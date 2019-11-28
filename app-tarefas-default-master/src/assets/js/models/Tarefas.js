@@ -23,6 +23,6 @@ class Tarefas {
     if (index > -1) {
       this._tarefas.splice(index, 1);
     }
-    
+
   }
 }

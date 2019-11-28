@@ -31,11 +31,11 @@ class TarefaView {
 
   templateGrid(tarefas){
     return `
-      ${tarefas.listar().map(tarefa => {
+      ${tarefas.listar().map((tarefa, index)  => {
         return `
         <section class="task-background d-flex m-3"">
         <div>
-          <input type="checkbox" class="mt-1">
+          <input type="checkbox" class="mt-1
         </div>
         <div class="flex-fill ml-2 mr-2">
           
@@ -47,7 +47,7 @@ class TarefaView {
         </div>
         <div class="flex-column">
         <div>
-          <a href="#"><img onclick="tarefaController.deletar(${tarefa.id})" src="assets/images/delete.svg" alt=""></a>
+          <a href="#"><img onclick="tarefaController.deletar(${index})" src="assets/images/delete.svg" alt=""></a>
         </div>
           <div class="mt-3">
             <a href="#"><img onclick="tarefaController.trocarModalEditar(this),
