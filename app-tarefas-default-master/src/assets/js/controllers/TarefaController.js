@@ -60,7 +60,7 @@ class TarefaController {
     
     // Mostra o formulário
     $('#modalTarefa').modal('show')
-    localStorage.removeItem(id);
+    
   }
 
   trocarModalEditar(){
@@ -162,24 +162,21 @@ class TarefaController {
       .then(res => console.log(res))
   }
 
-  deletar(index){
-    console.log(index)
-    //this._tarefaService.deletar(id)
-    // Passa os dados para a View
-      // Adiciona as tarefas recebidas na lista de tarefas
-  //    .then(tarefas => {
-   //     tarefas.map(tarefa => {
-          
-         localStorage.removeItem("localStorage");
-          //this._tarefas.adicionar(tarefa)
-       // }
-          
-      //    )
-   //   this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));
-   //   this._tarefaView.montarGrid(this._tarefas);
+ async deletar(index){
+    console.log(index);
+
+    localStorage.removeItem("tarefaStorage");
+    let tarefas = await this._tarefaService.deletar(index);
+    console.log(tarefas);
+    tarefas.map(tarefa => this._tarefas.adicionar(tarefa));
+
+    localStorage.setItem("tarefaStorage", JSON.stringify(tarefas) );
+
+    this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));
+    
+    this.listar();
     
   }
-
   //juliano 20112019
 
 }

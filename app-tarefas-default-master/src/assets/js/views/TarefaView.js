@@ -47,7 +47,7 @@ class TarefaView {
         </div>
         <div class="flex-column">
         <div>
-          <a href="#"><img onclick="tarefaController.deletar(${index})" src="assets/images/delete.svg" alt=""></a>
+          <a href="#"><img onclick="tarefaController.deletar(${tarefa.id})" src="assets/images/delete.svg" alt=""></a>
         </div>
           <div class="mt-3">
             <a href="#"><img onclick="tarefaController.trocarModalEditar(this),
