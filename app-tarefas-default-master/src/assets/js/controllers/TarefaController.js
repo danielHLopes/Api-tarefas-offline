@@ -13,13 +13,22 @@ class TarefaController {
       // Adiciona as tarefas recebidas na lista de tarefas
       .then(tarefas => {
         tarefas.map(tarefa => {
+
           localStorage.setItem("tarefaStorage", JSON.stringify(tarefas))
           //this._tarefas.adicionar(tarefa)
+
           
         })
       })
+
       this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));      
       this._tarefaView.montarGrid(this._tarefas)
+
+      // Passa os dados para a View
+      //.then(() => this._tarefaView.montarGrid(this._tarefas))
+
+    
+
   }
 
    //método desenvolvido pelo juliano
@@ -156,12 +165,21 @@ class TarefaController {
       .then(res => console.log(res))
   }
 
-  deletar(id){
-    this._tarefaService.deletar(id)
-    // Passa os dados para a View
+ async deletar(index){
+    console.log(index);
+
+    localStorage.removeItem("tarefaStorage");
+    let tarefas = await this._tarefaService.deletar(index);
+    console.log(tarefas);
+    tarefas.map(tarefa => this._tarefas.adicionar(tarefa));
+
+    localStorage.setItem("tarefaStorage", JSON.stringify(tarefas) );
+
+    this._tarefas._tarefas = JSON.parse(localStorage.getItem("tarefaStorage"));
+    
+    this.listar();
     
   }
-
   //juliano 20112019
 
 }
