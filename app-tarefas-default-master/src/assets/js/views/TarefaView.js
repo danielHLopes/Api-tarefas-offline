@@ -35,7 +35,7 @@ class TarefaView {
         return `
         <section class="task-background d-flex m-3"">
         <div>
-          <input type="checkbox" class="mt-1
+          <input type="checkbox" class="mt-1">
         </div>
         <div class="flex-fill ml-2 mr-2">
           
