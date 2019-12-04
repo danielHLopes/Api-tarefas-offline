@@ -110,24 +110,20 @@ class TarefaService extends Service {
             )
   }
 
-  deletar(_id){
+  async deletar(_id){
     console.log("deletando " + _id)
     const parametros = {
       method: 'DELETE',
       headers: {"Content-Type": "application/json"}
     }
     // console.log(tarefa)
-    return fetch(`${this._path}/` + _id, parametros)
-            .then(res => {
-              if (!res.ok) throw new Error(res.statusText)
-              return res.json()
-              
-            })
-            .then(this._tarefas.deletar(_id))
-            .then(document.location.reload(true))
-            .catch(e => console.log(e))
 
-    
+    await fetch(this._path + "/" + _id, parametros);
 
+    await this._tarefas.deletar(_id);
+
+    //document.location.reload(true);
+
+    return this.listarTodas("Parametro que n é usado");
   }
 }
