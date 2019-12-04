@@ -69,7 +69,8 @@ class TarefaService extends Service {
   inserir(tarefa){
     console.log("imprimindo tarefa")
     console.log(tarefa)
-    let caminho = "http://localhost:3009/api/v1/tarefas/";
+    if(navigator.onLine){
+      let caminho = "http://localhost:3009/api/v1/tarefas/";
     const parametros = {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
@@ -86,11 +87,17 @@ class TarefaService extends Service {
             // .catch(erro => Mensagem.mostrar(erro, 'alert-danger')
             .catch(erro => console.log(erro)
             )
+    }else{
+     
+      window.localStorage.setItem('TI',tarefa)
+    }
+    
   }
 
   alterar(tarefa,_id){
     console.log("ALTERANDO tarefa")
     console.log(tarefa)
+    if(navigator.onLine){
     let caminho = "http://localhost:3009/api/v1/tarefas/"+_id;
     const parametros = {
       method: 'PUT',
@@ -108,6 +115,9 @@ class TarefaService extends Service {
             // .catch(erro => Mensagem.mostrar(erro, 'alert-danger')
             .catch(erro => console.log(erro)
             )
+          }else{
+            window.localStorage.setItem('TA'+tarefa.id,tarefa)
+          }
   }
 
   async deletar(_id){

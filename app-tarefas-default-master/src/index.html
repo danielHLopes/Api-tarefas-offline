@@ -65,6 +65,12 @@
       </div>
      </div>
   </header>
+
+  <div class="text-center">
+      <button type="button" onclick="tarefaController.carregarFormulario(this),tarefaController.trocarModalSalvar(this)" class="botao__novo-mobile btn-outline-primary">+ Novo</button>
+      <button type="button" id="btn-categoria" onclick="categoriaController.carregarFormularioCategoria(this)" class="botao__categoria-mobile btn-outline-primary">+ Categorias</button>
+  </div>
+  
   <main class="container-fluid d-flex">
     <nav class="separar nav__none">
       <div>
@@ -101,7 +107,7 @@
       </ul>
 
       <!--Modal de categorias-->
-      <div class="modal" id="modalCategoria">
+      <div class="modal modal__mobile" id="modalCategoria">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -157,13 +163,7 @@
     </nav>
 
     <section class="flex-fill" id="grid"></section>
-
-      <!-- Mensagem -->
-      <div class="" id="mensagem"></div>
-      <div class="text-center">
-          <button type="button" onclick="tarefaController.carregarFormulario(this),tarefaController.trocarModalSalvar(this)" class="botao__novo-mobile btn-outline-primary">+ Novo</button>
-          <button type="button" id="btn-categoria" onclick="categoriaController.carregarFormularioCategoria(this)" class="botao__categoria-mobile btn-outline-primary">+ Categorias</button>
-      </div>
+      
     </section>
      <!--Modal de tarefas -->
     <div class="modal" id="modalTarefa">
