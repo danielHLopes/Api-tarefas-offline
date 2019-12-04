@@ -26,20 +26,20 @@
   text-decoration: none;
 }
 
-
 .lista__itens{
   list-style: none;
 }
 
-
-
-.lixeira{
-  position: fixed;
-  bottom: 20px;
+.separar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
 }
 
 #more {display: none;}
 
+/*Mobile*/
 @media(max-width: 650px){
   .btn-mobile{
     display: none;
@@ -56,11 +56,12 @@
     display: none;
   }
   .btn__menu-mobile{
-    margin: 5px 15px 5px 5px;
+    margin: 5px 20px 5px 5px;
     width: 32px;
   }
   .pesquisa-mobile{
     padding-top: 15px;
+    width: 200px;
   }
   .icon__pesquisa-mobile{
     margin-top: 15px;
