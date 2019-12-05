@@ -5,6 +5,25 @@ class CategoriaService extends Service {
     this._path = `${this._url}/categorias`
   }
   
+  listarPorCategorias(idCategoria){
+    this._path = `http://localhost:3009/api/v1/categorias/tarefas/${idCategoria}`
+
+    console.log(this._path)
+
+    const parametros = {
+      method: 'GET',
+      headers:{
+        "Content-Type": "application/json" ,
+       
+      }
+    }
+    return fetch(`${this._path}`,parametros)
+    .then(res => {
+      if (!res.ok) throw new Error(res.statusText)
+      return res.json()
+    })
+    .catch(erro => Mensagem.mostrar(erro, 'alert-danger'))
+  }
 
   listarTodas(){
     return fetch(`${this._path}`)

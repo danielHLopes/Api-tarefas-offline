@@ -1,6 +1,7 @@
 class CategoriaController {
   
   constructor(){
+    this._tarefas = new Tarefas()
     this._categorias = new Categorias()
     this._categoriaService = new CategoriaService()
     this._categoriaView = new CategoriaView()
@@ -17,6 +18,26 @@ class CategoriaController {
       .then(() => this._categoriaView.montarListagem(this._categorias))
   }
 
+  listar_tarefa_por_id(idCategoria, categCor, categDesc){
+    this._tarefas.limpar();
+    let _tarefa;
+    this._categoriaService.listarPorCategorias(idCategoria)
+    .then(tarefas => {
+      tarefas.map(tarefa => {
+        _tarefa = new Tarefas();
+        _tarefa.id = tarefa.id;
+        _tarefa.descricao = tarefa.descricao;
+        _tarefa.data = tarefa.data;
+        _tarefa.realizado = tarefa.realizado;
+        _tarefa.categoria_id = tarefa.categoria_id;
+        _tarefa.categoria_desc = tarefa.categoria_desc;
+        _tarefa.cor = categCor;
+        _tarefa.categoria_desc = categDesc;
+        console.log("Cor " + categCor);
+        this._tarefas.adicionar(_tarefa)})
+    })
+    .then(() => new TarefaView().montarGrid(this._tarefas))
+  }
 
    listar_categoria_inserir(){
     this._categorias.limpar()

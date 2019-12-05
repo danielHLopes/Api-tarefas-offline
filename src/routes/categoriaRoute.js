@@ -7,9 +7,11 @@ const categoriaValidation = require('../util/categoriaValidation')
 
 route.put('/:id',           categoriaValidation.alterar,                categoriaController.alterar)
 route.delete('/:id',        categoriaValidation.deletar,                categoriaController.deletar)
+route.get('/tarefas/:id',   categoriaValidation.listarPorCategoriaId,  categoriaController.listarPorCategoriaId)   
 route.get('/:id',           categoriaValidation.listarPorId,            categoriaController.listarPorId)
 route.post('/',             categoriaValidation.inserir,                categoriaController.inserir)
 route.get('/',              categoriaController.listar)
+
 
 module.exports = route
 

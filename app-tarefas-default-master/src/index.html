@@ -22,15 +22,17 @@
 <body>
     <div id="mySidenav" class="sidenav" style="align-items: flex-end;background-color: #4E90E9;">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="text__menu-mobile" href="#"><img src="assets/images/lixeiramobile.svg" class="lixeira-mobile" alt="Lixeira">Lixeira</a> 
+        <a class="text__menu-mobile" id="btn-lixeira" href="#"><img src="assets/images/lixeiramobile.svg" class="lixeira-mobile" alt="Lixeira">Lixeira</a> 
       </div>
       <div id="sidenavright" class="sidenavright">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNavright()">&times;</a>  
-          <button class="btn" id="btn-categoria" onclick="categoriaController.carregarFormularioCategoria(this)" style="padding-top: 0px; padding-left: 10px; padding-bottom: 10px; padding-right: 0px; border-top-width: 0px;">
+      <ul class="list-unstyled mt-3" id="lista-categorias2">
+            <!-- Aqui é onde puxa as categorias da API -->
+          </ul>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNavright()">&times;</a>
           <a style="margin-top:10px; flex-direction: column-reverse; color: white; text-decoration: underline;">Prioridades </a>
-          <a href="#" style="font-size: 20px;" class="mr-1">Alta</a>
-          <a href="#" style="font-size: 20px;" class="mr-1">Média</a>
-          <a href="#" style="font-size: 20px;" class="mr-1">Baixa</a>
+          <a href="#" style="font-size: 20px;" class="mr-1" id="prioridade_alta">Alta</a>
+          <a href="#" style="font-size: 20px;" class="mr-1" id="prioridade_media">Média</a>
+          <a href="#" style="font-size: 20px;" class="mr-1" id="prioridade_baixa">Baixa</a>
       </div>
   <header class="container-fluid" style="background-color: #2F80ED">
     <div class="d-flex justify-content-between pt-2 pb-2">
@@ -266,7 +268,6 @@
       }
     }
   </script>
-
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -282,7 +283,6 @@
     function closeNavright() {
       document.getElementById("sidenavright").style.width = "0px";
     }
-
   </script>
 </body>
 </html>

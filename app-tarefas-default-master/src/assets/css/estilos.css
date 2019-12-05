@@ -97,9 +97,7 @@
   .text__menu-mobile{
     padding: 10px;
   }
-  .modal__mobile{
-    
-  }
+
 }
 @media(min-width: 650px){
   .btn__menu-mobile{

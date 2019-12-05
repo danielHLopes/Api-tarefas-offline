@@ -32,7 +32,7 @@ class TarefaController {
   }
 
    //método desenvolvido pelo juliano
-   listar_por_prioridade (prioridade,pagina){
+   listar_por_prioridade (prioridade,pcategoria_descagina){
     console.log(prioridade)
     this._tarefas.limpar();
     this._tarefaService.listarTodas_por_prioridade(prioridade,pagina)
