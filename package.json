@@ -33,7 +33,7 @@
     "i": "^0.3.6",
     "inspect": "0.0.2",
     "jsonwebtoken": "^8.5.1",
-    "kind-of": "^6.0.2",
+    "kind-of": "^6.0.3",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.4",
